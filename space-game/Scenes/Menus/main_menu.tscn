@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cp5xqy5crr4na"]
 
 [ext_resource type="Texture2D" uid="uid://dv323ytc3r4hq" path="res://Assets/Backgrounds/stock_main_menu_backrooms.jpg" id="1_38aua"]
+[ext_resource type="Script" uid="uid://bxoyebfef1lty" path="res://Scenes/Menus/main_menu.gd" id="1_penys"]
+[ext_resource type="Script" uid="uid://c1xr6i4haklhe" path="res://Scenes/Menus/start_btn.gd" id="2_pha2q"]
 
 [node name="MainMenu" type="Control" unique_id=34217713]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+script = ExtResource("1_penys")
 
 [node name="Title" type="Label" parent="." unique_id=421070855]
 z_index = 1
@@ -57,6 +60,7 @@ theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 text = "Start"
+script = ExtResource("2_pha2q")
 
 [node name="OptionsBtn" type="Button" parent="MainMenu" unique_id=387524303]
 layout_mode = 2
@@ -73,3 +77,5 @@ focus_neighbor_top = NodePath("../OptionsBtn")
 focus_neighbor_bottom = NodePath("../StartBtn")
 theme_override_font_sizes/font_size = 34
 text = "Exit"
+
+[connection signal="pressed" from="MainMenu/StartBtn" to="." method="_on_start_btn_pressed"]
