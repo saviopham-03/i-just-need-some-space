@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://btsj4d7l02b0l"]
+
+[ext_resource type="Script" uid="uid://dq10v20pnqu2e" path="res://Scripts/Menus/ingame_ui.gd" id="1_mt2ib"]
+[ext_resource type="PackedScene" uid="uid://blt36ol4jvaet" path="res://Scenes/Menus/ship_healthbar.tscn" id="1_ngojy"]
+
+[node name="ingame_ui" type="Control" unique_id=2078152375]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mt2ib")
+
+[node name="ShipHealthBar" parent="." unique_id=1881776840 instance=ExtResource("1_ngojy")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.88900006
+anchor_right = 1.0
+anchor_bottom = 0.88900006
+offset_left = 192.0
+offset_top = 23.927979
+offset_right = -240.0
+offset_bottom = 55.92798

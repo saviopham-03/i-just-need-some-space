@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b4wj0gcs3x8xh"]
+
+[ext_resource type="Script" uid="uid://u20dpv58lgm3" path="res://Scripts/Menus/ship_health_bar.gd" id="1_huiti"]
+[ext_resource type="Texture2D" uid="uid://c87d470hgp7v4" path="res://Assets/Menus/hp_head.png" id="2_4ixqm"]
+[ext_resource type="Texture2D" uid="uid://dlyurguapvh08" path="res://Assets/Menus/hp_middle.png" id="3_26u34"]
+[ext_resource type="Texture2D" uid="uid://bnom222b3voto" path="res://Assets/Menus/hp_end.png" id="4_p5q4g"]
+
+[node name="ShipHealthBar" type="Control" unique_id=932728408]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 128.0
+script = ExtResource("1_huiti")
+
+[node name="ShipHealthBarContainer" type="HBoxContainer" parent="." unique_id=1585456197]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HealthHead" type="TextureRect" parent="ShipHealthBarContainer" unique_id=1001814514]
+layout_mode = 2
+texture = ExtResource("2_4ixqm")
+
+[node name="HealthMiddle" type="TextureRect" parent="ShipHealthBarContainer" unique_id=1150673407]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_26u34")
+
+[node name="HealthEnd" type="TextureRect" parent="ShipHealthBarContainer" unique_id=952397535]
+layout_mode = 2
+texture = ExtResource("4_p5q4g")

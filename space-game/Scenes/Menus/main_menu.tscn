@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dv323ytc3r4hq" path="res://Assets/Backgrounds/stock_main_menu_backrooms.jpg" id="1_38aua"]
 
-[node name="main_menu" type="Control" unique_id=34217713]
+[node name="MainMenu" type="Control" unique_id=34217713]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0

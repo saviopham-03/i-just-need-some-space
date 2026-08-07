@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://blt36ol4jvaet"]
+
+[ext_resource type="Texture2D" uid="uid://dpmr7y3l46biy" path="res://Assets/Menus/placeholder_healthbar_over.png" id="1_hoki2"]
+[ext_resource type="Texture2D" uid="uid://dt8d6firvb8qm" path="res://Assets/Menus/placeholder_healthbar_progress.png" id="2_5eb2j"]
+[ext_resource type="Script" uid="uid://f3nq03pbcr0l" path="res://Scripts/Menus/ship_healthbar.gd" id="3_5eb2j"]
+[ext_resource type="Texture2D" uid="uid://dccho264wsxf7" path="res://Assets/Menus/placeholder_healthbar_under.png" id="3_qg5ca"]
+[ext_resource type="Texture2D" uid="uid://dlv72xcc80rff" path="res://Assets/Menus/placeholder_damagebar_progress.png" id="4_bggda"]
+
+[node name="ShipHealthBar" type="TextureProgressBar" unique_id=1881776840]
+z_index = 1
+offset_right = 720.0
+offset_bottom = 8.0
+value = 50.0
+texture_over = ExtResource("1_hoki2")
+texture_progress = ExtResource("2_5eb2j")
+script = ExtResource("3_5eb2j")
+
+[node name="ShipDamageBar" type="TextureProgressBar" parent="." unique_id=654168593]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 80.0
+texture_under = ExtResource("3_qg5ca")
+texture_progress = ExtResource("4_bggda")
+
+[node name="ShipDamageTimer" type="Timer" parent="." unique_id=1892833854]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="ShipDamageTimer" to="." method="_on_ship_damage_timer_timeout"]
