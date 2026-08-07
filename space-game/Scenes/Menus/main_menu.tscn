@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cp5xqy5crr4na"]
+
+[ext_resource type="Texture2D" uid="uid://dv323ytc3r4hq" path="res://Assets/Backgrounds/stock_main_menu_backrooms.jpg" id="1_38aua"]
+
+[node name="main_menu" type="Control" unique_id=34217713]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Title" type="Label" parent="." unique_id=421070855]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -148.0
+offset_right = 223.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 40
+text = "i just need some space "
+
+[node name="Background" type="TextureRect" parent="." unique_id=1329347595]
+layout_mode = 0
+offset_right = 1137.7778
+offset_bottom = 648.0
+texture = ExtResource("1_38aua")
+expand_mode = 3
+
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=732013648]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -264.0
+offset_right = 448.0
+offset_bottom = -72.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="StartBtn" type="Button" parent="MainMenu" unique_id=1940052776]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ExitBtn")
+focus_neighbor_bottom = NodePath("../OptionsBtn")
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 34
+text = "Start"
+
+[node name="OptionsBtn" type="Button" parent="MainMenu" unique_id=387524303]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../StartBtn")
+focus_neighbor_bottom = NodePath("../ExitBtn")
+theme_override_font_sizes/font_size = 34
+text = "Options"
+
+[node name="ExitBtn" type="Button" parent="MainMenu" unique_id=1872355681]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../OptionsBtn")
+focus_neighbor_bottom = NodePath("../StartBtn")
+theme_override_font_sizes/font_size = 34
+text = "Exit"
