@@ -11,6 +11,7 @@ func _ready():
 
 func _on_mouse_entered():
 	sprite.play("transient")
+	
 
 func _on_mouse_exited():
 	sprite.play("idle")

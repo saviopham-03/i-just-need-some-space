@@ -1,60 +1,49 @@
 [gd_scene format=3 uid="uid://cp5xqy5crr4na"]
 
-[ext_resource type="Texture2D" uid="uid://dv323ytc3r4hq" path="res://Assets/Backgrounds/stock_main_menu_backrooms.jpg" id="1_38aua"]
 [ext_resource type="Script" uid="uid://bxoyebfef1lty" path="res://Scenes/Menus/main_menu.gd" id="1_penys"]
+[ext_resource type="Texture2D" uid="uid://vddbj7hacr1g" path="res://Assets/Backgrounds/bg test.png" id="2_4fgt5"]
 [ext_resource type="Script" uid="uid://c1xr6i4haklhe" path="res://Scenes/Menus/start_btn.gd" id="2_pha2q"]
 [ext_resource type="Texture2D" uid="uid://ds8rl5wk15256" path="res://Assets/Menus/title-Sheet.png" id="3_aur2u"]
 [ext_resource type="Texture2D" uid="uid://df4iv3wjv36p0" path="res://Assets/Menus/start_idle.png" id="6_j4kqa"]
 [ext_resource type="Texture2D" uid="uid://l1qdem21lqum" path="res://Assets/Menus/start_steady-Sheet.png" id="7_anmaw"]
+[ext_resource type="FontFile" uid="uid://dy4a3fsgt7cfq" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="8_4fgt5"]
 [ext_resource type="Texture2D" uid="uid://dusa3mujfhwwt" path="res://Assets/Menus/start_trans-Sheet.png" id="8_ftsii"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aur2u"]
-atlas = ExtResource("3_aur2u")
-region = Rect2(0, 0, 1500, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wi6m"]
-atlas = ExtResource("3_aur2u")
-region = Rect2(1500, 0, 1500, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_chkef"]
-atlas = ExtResource("3_aur2u")
-region = Rect2(3000, 0, 1500, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_neey8"]
-atlas = ExtResource("3_aur2u")
-region = Rect2(4500, 0, 1500, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fgt5"]
 atlas = ExtResource("3_aur2u")
-region = Rect2(6000, 0, 1500, 640)
+region = Rect2(0, 0, 1500, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4kqa"]
 atlas = ExtResource("3_aur2u")
-region = Rect2(7500, 0, 1500, 640)
+region = Rect2(1500, 0, 1500, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anmaw"]
 atlas = ExtResource("3_aur2u")
-region = Rect2(9000, 0, 1500, 640)
+region = Rect2(3000, 0, 1500, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftsii"]
+atlas = ExtResource("3_aur2u")
+region = Rect2(4500, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg3ot"]
+atlas = ExtResource("3_aur2u")
+region = Rect2(6000, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h56lv"]
+atlas = ExtResource("3_aur2u")
+region = Rect2(7500, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e57l0"]
+atlas = ExtResource("3_aur2u")
+region = Rect2(9000, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwyy1"]
 atlas = ExtResource("3_aur2u")
 region = Rect2(10500, 0, 1500, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ep3er"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aur2u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5wi6m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_chkef")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_neey8")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fgt5")
 }, {
@@ -66,6 +55,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ftsii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg3ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h56lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e57l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwyy1")
 }],
 "loop": 1,
 "name": &"default",
@@ -173,7 +174,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"transient",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="MainMenu" type="Control" unique_id=34217713]
@@ -206,7 +207,7 @@ text = "i just need some space "
 layout_mode = 0
 offset_right = 1137.7778
 offset_bottom = 648.0
-texture = ExtResource("1_38aua")
+texture = ExtResource("2_4fgt5")
 expand_mode = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background" unique_id=1009491140]
@@ -222,8 +223,9 @@ anchor_bottom = 1.0
 offset_left = 371.0
 offset_top = -270.0
 offset_right = 817.0
-offset_bottom = -72.0
+offset_bottom = -40.0
 grow_vertical = 0
+offset_transform_enabled = true
 theme_override_constants/separation = 10
 
 [node name="StartBtn" type="Button" parent="MainMenu" unique_id=1940052776]
@@ -252,15 +254,19 @@ layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../StartBtn")
 focus_neighbor_bottom = NodePath("../ExitBtn")
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("8_4fgt5")
+theme_override_font_sizes/font_size = 41
 text = "Options"
+flat = true
 
 [node name="ExitBtn" type="Button" parent="MainMenu" unique_id=1872355681]
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../OptionsBtn")
 focus_neighbor_bottom = NodePath("../StartBtn")
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("8_4fgt5")
+theme_override_font_sizes/font_size = 41
 text = "Exit"
+flat = true
 
 [connection signal="pressed" from="MainMenu/StartBtn" to="." method="_on_start_btn_pressed"]

@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_start_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Levels/TestBox.tscn")
+	SceneTransitions.change_scene("res://Scenes/Levels/TestBox.tscn")
