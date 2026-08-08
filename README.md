@@ -1,11 +1,11 @@
-# Space Game (title pending)
+# I just need some Space
 ### MAC Game Jam 2026
 ##### Dropkick Games
 E. Somerville, N. Alam, S. Pham
 
-# About our game
+# I just need some Space
 
-A 2D time and resource managing platformer that.. idk ill explain this later
+A 2D time and resource managing platformer centered around repairing a spaceship in the midst of a great space war.
 
 ## Installation
 
