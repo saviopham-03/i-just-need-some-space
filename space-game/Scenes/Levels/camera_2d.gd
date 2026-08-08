@@ -12,3 +12,4 @@ func _process(delta: float) -> void:
 	var player_pos = $"../character/CharacterBody2D".global_position
 	global_position.x = lerp(global_position.x, player_pos.x, camera_delay) 
 	global_position.y = lerp(global_position.y, player_pos.y, camera_delay) 
+	
