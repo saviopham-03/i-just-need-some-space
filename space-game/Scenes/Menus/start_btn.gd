@@ -11,7 +11,7 @@ func _ready():
 
 func _on_mouse_entered():
 	sprite.play("transient")
-	
+	$"../hover".play()
 
 func _on_mouse_exited():
 	sprite.play("idle")
@@ -23,3 +23,7 @@ func _on_animation_finished():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_main_menu_mouse_entered() -> void:
+	pass # Replace with function body.
