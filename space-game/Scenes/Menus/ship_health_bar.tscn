@@ -4,33 +4,101 @@
 [ext_resource type="Texture2D" uid="uid://c87d470hgp7v4" path="res://Assets/Menus/hp_head.png" id="2_4ixqm"]
 [ext_resource type="Texture2D" uid="uid://dlyurguapvh08" path="res://Assets/Menus/hp_middle.png" id="3_26u34"]
 [ext_resource type="Texture2D" uid="uid://bnom222b3voto" path="res://Assets/Menus/hp_end.png" id="4_p5q4g"]
+[ext_resource type="Texture2D" uid="uid://3lyx6s3h50bx" path="res://Assets/Menus/healthbar_back.png" id="5_26u34"]
+[ext_resource type="Texture2D" uid="uid://cyud2lv37dkte" path="res://Assets/Menus/fire_head.png" id="5_qoav3"]
+[ext_resource type="Texture2D" uid="uid://6gtfmkliylma" path="res://Assets/Menus/fire_middle.png" id="6_c4xey"]
+[ext_resource type="Texture2D" uid="uid://cyk7j1g8s5exo" path="res://Assets/Menus/healthbar_overlay.png" id="6_p5q4g"]
+[ext_resource type="Texture2D" uid="uid://dvoqi3cdikls8" path="res://Assets/Menus/fire_end.png" id="6_wmcyb"]
 
 [node name="ShipHealthBar" type="Control" unique_id=932728408]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 128.0
+anchor_right = 4.4620004
+anchor_bottom = 0.49400002
+offset_right = -0.22460938
+offset_bottom = -0.11199951
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_huiti")
 
 [node name="ShipHealthBarContainer" type="HBoxContainer" parent="." unique_id=1585456197]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -8.0
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.312
+anchor_right = 0.95500004
+anchor_bottom = 0.68700004
+offset_left = 0.1000061
+offset_top = 0.15999603
+offset_right = 1.2998047
+offset_bottom = 0.1599884
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="HealthHead" type="TextureRect" parent="ShipHealthBarContainer" unique_id=1001814514]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 8
 texture = ExtResource("2_4ixqm")
+stretch_mode = 2
 
 [node name="HealthMiddle" type="TextureRect" parent="ShipHealthBarContainer" unique_id=1150673407]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_26u34")
+expand_mode = 1
 
 [node name="HealthEnd" type="TextureRect" parent="ShipHealthBarContainer" unique_id=952397535]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 0
 texture = ExtResource("4_p5q4g")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="ShipHealthBarContainer" unique_id=597943010]
+visible = false
+custom_maximum_size = Vector2(120, -1)
+propagate_maximum_size = true
+layout_mode = 2
+texture = ExtResource("5_qoav3")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="ShipHealthBarContainer" unique_id=159393214]
+visible = false
+custom_minimum_size = Vector2(4370, 0)
+layout_mode = 2
+texture = ExtResource("6_c4xey")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="ShipHealthBarContainer" unique_id=2097707620]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_wmcyb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthBackground" type="TextureRect" parent="." unique_id=775833845]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99600005
+anchor_bottom = 1.0
+offset_right = 0.5595703
+grow_vertical = 2
+texture = ExtResource("5_26u34")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthOverlay" type="TextureRect" parent="." unique_id=1312428586]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5600014
+texture = ExtResource("6_p5q4g")
+expand_mode = 3
+stretch_mode = 4
+
+[connection signal="resized" from="ShipHealthBarContainer/HealthMiddle" to="." method="_on_health_middle_resized"]
