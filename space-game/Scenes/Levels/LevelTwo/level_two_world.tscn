@@ -10,33 +10,39 @@
 [ext_resource type="PackedScene" uid="uid://fgbc1wdb1t2r" path="res://Scenes/Levels/LevelTwo/lev2sce3x2.tscn" id="8_nklhe"]
 [ext_resource type="PackedScene" uid="uid://b7cxf2a1ns2gs" path="res://Scenes/Levels/LevelTwo/lev2sce3x3.tscn" id="9_x4kj7"]
 [ext_resource type="PackedScene" uid="uid://c8w6p686kppcq" path="res://Scenes/Characters/player.tscn" id="10_rr01x"]
+[ext_resource type="Script" uid="uid://csj4kdpcgysej" path="res://Scenes/Characters/level2world.gd" id="11_ghn2j"]
 
 [node name="LevelTwoWorld" type="Node2D" unique_id=766010798]
 
 [node name="sce1x1" parent="." unique_id=1496614791 instance=ExtResource("1_pw1f3")]
-
-[node name="sce1x2" parent="." unique_id=5989779 instance=ExtResource("2_rr01x")]
-position = Vector2(1152, 0)
-
-[node name="sce1x3" parent="." unique_id=1671156438 instance=ExtResource("3_ghn2j")]
-position = Vector2(2304, 0)
-
-[node name="sce2x1" parent="." unique_id=641208561 instance=ExtResource("4_do8rc")]
 position = Vector2(0, -648)
 
-[node name="sce2x2" parent="." unique_id=1137745754 instance=ExtResource("5_7qbr1")]
+[node name="sce1x2" parent="." unique_id=5989779 instance=ExtResource("2_rr01x")]
 position = Vector2(1152, -648)
 
-[node name="sce2x3" parent="." unique_id=1239552901 instance=ExtResource("6_ik68q")]
+[node name="sce1x3" parent="." unique_id=1671156438 instance=ExtResource("3_ghn2j")]
 position = Vector2(2304, -648)
 
-[node name="sce3x1" parent="." unique_id=746702543 instance=ExtResource("7_kbk61")]
+[node name="sce2x1" parent="." unique_id=641208561 instance=ExtResource("4_do8rc")]
 position = Vector2(0, -1296)
 
-[node name="sce3x2" parent="." unique_id=920366829 instance=ExtResource("8_nklhe")]
+[node name="sce2x2" parent="." unique_id=1137745754 instance=ExtResource("5_7qbr1")]
 position = Vector2(1152, -1296)
 
-[node name="sce3x3" parent="." unique_id=1006562735 instance=ExtResource("9_x4kj7")]
+[node name="sce2x3" parent="." unique_id=1239552901 instance=ExtResource("6_ik68q")]
 position = Vector2(2304, -1296)
 
-[node name="Node2D" parent="." unique_id=146263945 instance=ExtResource("10_rr01x")]
+[node name="sce3x1" parent="." unique_id=746702543 instance=ExtResource("7_kbk61")]
+position = Vector2(0, -1944)
+
+[node name="sce3x2" parent="." unique_id=920366829 instance=ExtResource("8_nklhe")]
+position = Vector2(1152, -1944)
+
+[node name="sce3x3" parent="." unique_id=1006562735 instance=ExtResource("9_x4kj7")]
+position = Vector2(2304, -1944)
+
+[node name="Player" parent="." unique_id=146263945 instance=ExtResource("10_rr01x")]
+position = Vector2(1237, -145)
+script = ExtResource("11_ghn2j")
+
+[editable path="Player"]

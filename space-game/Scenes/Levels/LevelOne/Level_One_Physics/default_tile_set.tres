@@ -1,7 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://dqto1wva23s77"]
 
 [ext_resource type="Texture2D" uid="uid://clia8jggrhejb" path="res://Assets/Tiles/tileset.png" id="1_12074"]
-[ext_resource type="Texture2D" uid="uid://cffbp0frgakm5" path="res://Assets/Tiles/testtileset.png" id="2_bjque"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjque"]
 texture = ExtResource("1_12074")
@@ -66,7 +65,6 @@ texture_region_size = Vector2i(32, 32)
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.603031, -16, 16, -16, 16, 16, -8.603031, 16, -16, 16, -16, -16)
 1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.603031, -16, 16, -16, 16, 16, -8.603031, 16, -16, 16, -16, -16)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.603031, -16, 16, -16, 16, 16, -8.603031, 16, -16, 16, -16, -16)
 3:2/0 = 0
@@ -219,34 +217,6 @@ texture_region_size = Vector2i(32, 32)
 18:7/0 = 0
 19:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqdcc"]
-texture = ExtResource("2_bjque")
-use_texture_padding = false
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -254,4 +224,3 @@ physics_layer_1/collision_layer = 1
 custom_data_layer_0/name = "obstacle"
 custom_data_layer_0/type = 2
 sources/0 = SubResource("TileSetAtlasSource_bjque")
-sources/1 = SubResource("TileSetAtlasSource_jqdcc")

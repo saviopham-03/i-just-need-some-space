@@ -127,8 +127,8 @@ func set_space_movement(value:bool) -> void:
 	is_in_space = value
 
 func has_died(spawnx_coord:int, spawny_coord:int) -> void:
-	position.x = spawnx_coord
-	position.y = spawny_coord
+	global_position.x = spawnx_coord
+	global_position.y = spawny_coord
 
 
 

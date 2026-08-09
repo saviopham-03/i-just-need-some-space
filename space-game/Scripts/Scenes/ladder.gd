@@ -4,7 +4,7 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body.name == "CharacterBody2D":
 		if body.has_method("set_on_ladder"):
-			print("PLAYER ENTERED LADDER")
+			
 			body.set_on_ladder(true)
 
 func _on_body_exited(body: Node2D) -> void:
