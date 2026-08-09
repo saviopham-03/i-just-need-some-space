@@ -11,6 +11,7 @@ const SPACE_DRAG = 50.0
 var in_gravity: bool = true
 var is_on_ladder: bool = false
 var is_in_space: bool = false
+var is_dead: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 	
@@ -51,6 +52,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if is_on_ladder:
 		handle_ladder_movement()
 		move_and_slide()
@@ -124,6 +126,10 @@ func handle_space_movement(delta: float) -> void:
 
 func set_space_movement(value:bool) -> void:
 	is_in_space = value
+
+func has_died(spawnx_coord:int, spawny_coord:int) -> void:
+	position.x = spawnx_coord
+	position.y = spawny_coord
 
 
 
