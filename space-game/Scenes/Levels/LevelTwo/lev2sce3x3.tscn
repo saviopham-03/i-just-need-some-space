@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b7cxf2a1ns2gs"]
+
+[ext_resource type="PackedScene" uid="uid://7tkqq5tceuhc" path="res://Scenes/Levels/LevelOne/Level_One_Physics/base_map.tscn" id="1_rlixq"]
+
+[node name="TileMap" unique_id=1496614791 instance=ExtResource("1_rlixq")]

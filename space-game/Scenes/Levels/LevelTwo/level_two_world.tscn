@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b56p4hw8dau4o"]
+
+[ext_resource type="PackedScene" uid="uid://fegvc5gtdg2m" path="res://Scenes/Levels/LevelTwo/lev2sce1x1.tscn" id="1_pw1f3"]
+[ext_resource type="PackedScene" uid="uid://bybwo0bqr8swf" path="res://Scenes/Levels/LevelTwo/lev2sce1x2.tscn" id="2_rr01x"]
+[ext_resource type="PackedScene" uid="uid://cs0oubdyck005" path="res://Scenes/Levels/LevelTwo/lev2sce1x3.tscn" id="3_ghn2j"]
+[ext_resource type="PackedScene" uid="uid://c3i7hvuiasr1n" path="res://Scenes/Levels/LevelTwo/lev2sce2x1.tscn" id="4_do8rc"]
+[ext_resource type="PackedScene" uid="uid://11climnmay8n" path="res://Scenes/Levels/LevelTwo/lev2sce2x2.tscn" id="5_7qbr1"]
+[ext_resource type="PackedScene" uid="uid://cast5lpafsvp4" path="res://Scenes/Levels/LevelTwo/lev2sce2x3.tscn" id="6_ik68q"]
+[ext_resource type="PackedScene" uid="uid://b0ox0v2257k6k" path="res://Scenes/Levels/LevelTwo/lev2sce3x1.tscn" id="7_kbk61"]
+[ext_resource type="PackedScene" uid="uid://fgbc1wdb1t2r" path="res://Scenes/Levels/LevelTwo/lev2sce3x2.tscn" id="8_nklhe"]
+[ext_resource type="PackedScene" uid="uid://b7cxf2a1ns2gs" path="res://Scenes/Levels/LevelTwo/lev2sce3x3.tscn" id="9_x4kj7"]
+[ext_resource type="PackedScene" uid="uid://c8w6p686kppcq" path="res://Scenes/Characters/player.tscn" id="10_rr01x"]
+
+[node name="LevelTwoWorld" type="Node2D" unique_id=766010798]
+
+[node name="sce1x1" parent="." unique_id=1496614791 instance=ExtResource("1_pw1f3")]
+
+[node name="sce1x2" parent="." unique_id=5989779 instance=ExtResource("2_rr01x")]
+position = Vector2(1152, 0)
+
+[node name="sce1x3" parent="." unique_id=1671156438 instance=ExtResource("3_ghn2j")]
+position = Vector2(2304, 0)
+
+[node name="sce2x1" parent="." unique_id=641208561 instance=ExtResource("4_do8rc")]
+position = Vector2(0, -648)
+
+[node name="sce2x2" parent="." unique_id=1137745754 instance=ExtResource("5_7qbr1")]
+position = Vector2(1152, -648)
+
+[node name="sce2x3" parent="." unique_id=1239552901 instance=ExtResource("6_ik68q")]
+position = Vector2(2304, -648)
+
+[node name="sce3x1" parent="." unique_id=746702543 instance=ExtResource("7_kbk61")]
+position = Vector2(0, -1296)
+
+[node name="sce3x2" parent="." unique_id=920366829 instance=ExtResource("8_nklhe")]
+position = Vector2(1152, -1296)
+
+[node name="sce3x3" parent="." unique_id=1006562735 instance=ExtResource("9_x4kj7")]
+position = Vector2(2304, -1296)
+
+[node name="Node2D" parent="." unique_id=146263945 instance=ExtResource("10_rr01x")]
