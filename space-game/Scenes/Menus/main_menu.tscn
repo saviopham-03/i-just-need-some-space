@@ -180,6 +180,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_ftsii"]
+
 [node name="MainMenu" type="Control" unique_id=34217713]
 layout_mode = 3
 anchors_preset = 0
@@ -268,8 +270,9 @@ focus_neighbor_top = NodePath("../StartBtn")
 focus_neighbor_bottom = NodePath("../ExitBtn")
 theme_override_fonts/font = ExtResource("8_4fgt5")
 theme_override_font_sizes/font_size = 41
-text = "Options"
+text = "Credits"
 flat = true
+script = SubResource("GDScript_ftsii")
 
 [node name="ExitBtn" type="Button" parent="MainMenu" unique_id=1872355681]
 layout_mode = 2
