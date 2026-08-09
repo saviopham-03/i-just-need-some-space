@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dlx3djx7lmsie"]
+
+[ext_resource type="Texture2D" uid="uid://ibih84bgmr1a" path="res://Assets/Menus/fire_indicator_pointer.png" id="1_s0p3g"]
+[ext_resource type="Script" uid="uid://bi7cv5krpa0jh" path="res://texture_rect.gd" id="2_ek34n"]
+
+[node name="TextureRect" type="TextureRect" unique_id=349734202]
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 107.0
+offset_bottom = 115.0
+rotation = 5.2883477
+texture = ExtResource("1_s0p3g")
+expand_mode = 1
+script = ExtResource("2_ek34n")

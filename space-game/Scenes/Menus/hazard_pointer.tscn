@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://107rxqfjrspd"]
 
 [ext_resource type="Script" uid="uid://oc2l5ecfem74" path="res://Scripts/Menus/hazard_pointer.gd" id="1_2rn2i"]
-[ext_resource type="Texture2D" uid="uid://bxlshapmmvjx4" path="res://Assets/Menus/fire_hazard_symbol.png" id="2_1m7kx"]
-[ext_resource type="Texture2D" uid="uid://bitjwf6hi1qyr" path="res://Assets/Menus/hazard_pointer.png" id="2_oskso"]
+[ext_resource type="Texture2D" uid="uid://ibih84bgmr1a" path="res://Assets/Menus/fire_indicator_pointer.png" id="2_oskso"]
+[ext_resource type="Texture2D" uid="uid://drktrbcdchppy" path="res://Assets/Menus/fire_indicator.png" id="3_1m7kx"]
 
 [node name="HazardPointer" type="Control" unique_id=1375635884]
 layout_mode = 3
@@ -13,6 +13,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2rn2i")
 
+[node name="Pivot" type="Control" parent="." unique_id=497090706]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HazardTexture" type="TextureRect" parent="Pivot" unique_id=1455497132]
+layout_mode = 1
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(16, 16)
+expand_mode = 1
+
 [node name="HazardSymTexture" type="TextureRect" parent="." unique_id=1358569611]
 z_index = 1
 layout_mode = 0
@@ -20,13 +34,22 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("2_1m7kx")
-
-[node name="HazardTexture" type="TextureRect" parent="." unique_id=1455497132]
-layout_mode = 1
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-texture = ExtResource("2_oskso")
+pivot_offset = Vector2(16, 16)
 expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=205842060]
+visible = false
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+rotation = 2.3561945
+pivot_offset = Vector2(320, 320)
+texture = ExtResource("2_oskso")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1287086101]
+visible = false
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 640.0
+pivot_offset = Vector2(320, 320)
+texture = ExtResource("3_1m7kx")

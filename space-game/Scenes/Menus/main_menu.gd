@@ -13,7 +13,8 @@ func _process(delta: float) -> void:
 
 
 func _on_start_btn_pressed() -> void:
-	$MainMenu/click_start.play()
+	if $MainMenu/click_start:
+		$MainMenu/click_start.play()
 	SceneTransitions.change_scene("res://Scenes/Levels/LevelOne/level_one_world.tscn")
 
 
@@ -21,8 +22,16 @@ func _on_options_btn_mouse_entered() -> void:
 	$MainMenu/hover.play()
 func _on_options_btn_pressed() -> void:
 	$MainMenu/click.play()
+	SceneTransitions.change_scene("res://Scenes/Menus/credits.tscn")
 
 func _on_exit_btn_mouse_entered() -> void:
 	$MainMenu/hover.play()
 func _on_exit_btn_pressed() -> void:
 	$MainMenu/click.play()
+
+
+func _on_back_btn_mouse_entered() -> void:
+	$MainMenu/hover.play()
+func _on_back_btn_pressed() -> void:
+	$MainMenu/click.play()
+	SceneTransitions.change_scene("res://Scenes/Menus/main_menu.tscn")

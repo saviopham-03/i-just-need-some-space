@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://chhi4ddvifxfl"]
+
+[ext_resource type="Script" uid="uid://bxoyebfef1lty" path="res://Scenes/Menus/main_menu.gd" id="1_cpano"]
+[ext_resource type="Texture2D" uid="uid://vddbj7hacr1g" path="res://Assets/Backgrounds/bg test.png" id="2_csnga"]
+[ext_resource type="Texture2D" uid="uid://ds8rl5wk15256" path="res://Assets/Menus/title-Sheet.png" id="3_4sqrd"]
+[ext_resource type="AudioStream" uid="uid://by2hc3l2ay68b" path="res://Assets/Sounds/cursor.ogg" id="8_38qlk"]
+[ext_resource type="AudioStream" uid="uid://d0oa656tkp3w2" path="res://Assets/Sounds/select.ogg" id="10_svdgd"]
+[ext_resource type="FontFile" uid="uid://dy4a3fsgt7cfq" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="11_6x7gi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fgt5"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(0, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4kqa"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(1500, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anmaw"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(3000, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftsii"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(4500, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg3ot"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(6000, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h56lv"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(7500, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e57l0"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(9000, 0, 1500, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwyy1"]
+atlas = ExtResource("3_4sqrd")
+region = Rect2(10500, 0, 1500, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ep3er"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fgt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4kqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anmaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftsii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg3ot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h56lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e57l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwyy1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_aur2u"]
+
+[node name="MainMenu" type="Control" unique_id=34217713]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_cpano")
+
+[node name="Title" type="Label" parent="." unique_id=421070855]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -148.0
+offset_right = 223.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 40
+text = "i just need some space "
+
+[node name="Background" type="TextureRect" parent="." unique_id=1329347595]
+layout_mode = 0
+offset_right = 1137.7778
+offset_bottom = 648.0
+texture = ExtResource("2_csnga")
+expand_mode = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background" unique_id=1009491140]
+position = Vector2(594, 215)
+scale = Vector2(0.41835952, 0.41835952)
+sprite_frames = SubResource("SpriteFrames_ep3er")
+
+[node name="MainMenu" type="VBoxContainer" parent="." unique_id=732013648]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 371.0
+offset_top = -106.0
+offset_right = 817.0
+offset_bottom = -40.0
+grow_vertical = 0
+offset_transform_enabled = true
+theme_override_constants/separation = 10
+
+[node name="BackBtn" type="Button" parent="MainMenu" unique_id=1940052776]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_6x7gi")
+theme_override_font_sizes/font_size = 34
+text = "Back"
+icon = SubResource("AnimatedTexture_aur2u")
+
+[node name="hover" type="AudioStreamPlayer" parent="MainMenu" unique_id=814671503]
+stream = ExtResource("8_38qlk")
+
+[node name="click" type="AudioStreamPlayer" parent="MainMenu" unique_id=1200524085]
+stream = ExtResource("10_svdgd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1778663101]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.5
+offset_top = 12.0
+offset_right = 338.5
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.025481682, 2.4029277e-05, 0.113631584, 0.47058824)
+
+[node name="Label" type="Label" parent="." unique_id=1840803856]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.5
+offset_top = 30.0
+offset_right = 325.5
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_6x7gi")
+text = "Created in 48 Hours for MAC Game Jam 2026
+
+Game and all visual assets were created by the team Dropkick Games, consisting of
+Savio Pham, Nayeer Alam and Eamon Somerville
+
+Sound effects sourced from JDSherbert and Jason Steele"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="." to="MainMenu/BackBtn" method="_on_main_menu_mouse_entered"]
+[connection signal="mouse_entered" from="MainMenu/BackBtn" to="." method="_on_back_btn_mouse_entered"]
+[connection signal="pressed" from="MainMenu/BackBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MainMenu/BackBtn" to="." method="_on_back_btn_pressed"]
