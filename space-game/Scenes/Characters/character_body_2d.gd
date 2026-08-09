@@ -31,6 +31,8 @@ func get_obstacle() -> void:
 			set_space_movement(false)
 		if obby==4: #enter space
 			set_space_movement(true)
+		if obby==5: #dead
+			print("you died")
 	else:
 		set_on_ladder(false)
 	return
