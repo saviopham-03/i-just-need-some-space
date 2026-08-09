@@ -16,6 +16,7 @@ script = ExtResource("1_mt2ib")
 
 [node name="ShipHealthBar" parent="." unique_id=932728408 instance=ExtResource("2_mt2ib")]
 layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.056
 anchor_top = 0.85200006
 anchor_right = 0.9480001
@@ -27,10 +28,8 @@ offset_bottom = 253.75195
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1618479406]
-visible = false
-position = Vector2(580, 320)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="SampleHazard" type="TextureRect" parent="." unique_id=614306253]
 visible = false
