@@ -1,45 +1,114 @@
 extends CharacterBody2D
 
-
 const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
-var in_gravity = true
+const JUMP_VELOCITY = -725.0
+const CLIMB_SPEED = 150.0
 
-@onready var _animated_sprite = $AnimatedSprite2D
+const SPACE_ACCELERATION = 400.0
+const SPACE_MAX_SPEED = 250.0
+const SPACE_DRAG = 50.0
 
-func _process(_delta):
-	if in_gravity:
-		if velocity.y > 0:
-			_animated_sprite.play("falling")
-		if velocity.x != 0:
-			if is_on_floor():
-				_animated_sprite.play("walk")
-			$AnimatedSprite2D.flip_h = velocity.x < 0
-		elif velocity == Vector2(0,0):
-			_animated_sprite.play("idle")
+var in_gravity: bool = true
+var is_on_ladder: bool = false
+var is_in_space: bool = false
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+
+func _process(_delta: float) -> void:
+	if is_on_ladder:
+		animated_sprite.play("idle")
+		return
+
+	if velocity.y > 0:
+		animated_sprite.play("falling")
+	elif velocity.y < 0:
+		animated_sprite.play("jump")
+	elif velocity.x != 0:
+		if is_on_floor():
+			animated_sprite.play("walk")
+		animated_sprite.flip_h = velocity.x < 0
+	else:
+		animated_sprite.play("idle")
+
 
 func _physics_process(delta: float) -> void:
+	if is_on_ladder:
+		handle_ladder_movement()
+		move_and_slide()
+		return
+	
+	if is_in_space:
+		print("SPACE MOVEMENT ACTIVE")
+		handle_space_movement(delta)
+		move_and_slide()
+		return
+
 	if in_gravity:
-		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 
-		# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
-			_animated_sprite.play("jump")
+	# Handle jump
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		animated_sprite.play("jump")
 
-		# Get the input direction and handle the movement/deceleration.
-		# As good practice, you should replace UI actions with custom gameplay actions.
-		var direction := Input.get_axis("ui_left", "ui_right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+	# Horizontal movement
+	var direction := Input.get_axis("ui_left", "ui_right")
 
-		move_and_slide()
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+
+
+func handle_ladder_movement() -> void:
+	var horizontal_dir := Input.get_axis("ui_left", "ui_right")
+	velocity.x = horizontal_dir * (SPEED * 0.5)
+
+	var vertical_dir := Input.get_axis("ui_up", "ui_down")
+
+	if vertical_dir:
+		velocity.y = vertical_dir * CLIMB_SPEED
+	else:
+		velocity.y = 0
+
+	if Input.is_action_just_pressed("ui_accept"):
+		is_on_ladder = false
+		velocity.y = JUMP_VELOCITY
+
+
+func set_on_ladder(value: bool) -> void:
+	is_on_ladder = value
+	print("LADDER STATE: ", is_on_ladder)
+
+func handle_space_movement(delta: float) -> void:
+	var horizontal_dir := Input.get_axis("ui_left", "ui_right")
+	var vertical_dir := Input.get_axis("ui_up", "ui_down")
+
+	# Accelerate horizontally
+	if horizontal_dir != 0:
+		velocity.x += horizontal_dir * SPACE_ACCELERATION * delta
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPACE_DRAG * delta)
+
+	# Accelerate vertically
+	if vertical_dir != 0:
+		velocity.y += vertical_dir * SPACE_ACCELERATION * delta
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPACE_DRAG * delta)
+
+	# Limit maximum speed
+	velocity.x = clamp(velocity.x, -SPACE_MAX_SPEED, SPACE_MAX_SPEED)
+	velocity.y = clamp(velocity.y, -SPACE_MAX_SPEED, SPACE_MAX_SPEED)
+
+func set_space_movement(value:bool) -> void:
+	is_in_space = value
+
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if _animated_sprite.animation == "jump":
-		_animated_sprite.play("idle")
-		
+	if animated_sprite.animation == "jump":
+		animated_sprite.play("idle")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://7tkqq5tceuhc"]
+
+[ext_resource type="TileSet" uid="uid://dqto1wva23s77" path="res://Scenes/Levels/LevelOne/Level_One_Physics/default_tile_set.tres" id="1_y447i"]
+
+[node name="TileMap" type="TileMap" unique_id=1496614791]
+tile_set = ExtResource("1_y447i")
+format = 2
+layer_0/name = "Background"
+layer_0/z_index = -2
+layer_1/name = "Platforms"
+layer_1/z_index = -1
+layer_2/name = "Obstacles"
+layer_2/z_index = 2
+layer_3/name = "Foreground"
+layer_3/z_index = 9
