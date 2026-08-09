@@ -27,6 +27,13 @@ func _change_bar_size(texturerect, new_x, speed):
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(texturerect, "custom_minimum_size:x", new_x, speed)
 
+func _change_bar_size_remove(texturerect, speed):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(texturerect, "custom_minimum_size:x", 0, speed)
+	tween.tween_callback(texturerect.queue_free)
+
 func _get_max_health_on_texture():
 	await get_tree().process_frame
 	return health_bar.size.x
@@ -36,11 +43,8 @@ func _set_ship_health(bar_id, value):
 	var bar_to_set = additional_bars.get(bar_id)
 	var new_bar_value = bar_to_set[1] + value
 	additional_bars.get(bar_id)[1] = new_bar_value
-	print(bar_to_set[1])
 	var bar_middle = bar_to_set[3]
 	_change_bar_size(bar_middle, await _scale_value_to_texture(new_bar_value), 0.5)
-	print(await _scale_value_to_texture(new_bar_value))
-	print(bar_middle.custom_minimum_size.x)
 		
 func add_ship_bar(bar_id, bar_type):
 	var new_bar_head = TextureRect.new()
@@ -69,7 +73,7 @@ func add_ship_bar(bar_id, bar_type):
 	new_bar_middle.custom_minimum_size.x = 0
 	new_bar_head.custom_minimum_size.x = 0
 	new_bar_end.custom_minimum_size.x = 0
-	await _change_bar_size(new_bar_end,end_native_x, 0.3)
+	_change_bar_size(new_bar_end,end_native_x, 0.3)
 	_change_bar_size(new_bar_head,head_native_x, 0.3)
 	
 	
@@ -90,7 +94,6 @@ func add_ship_bar(bar_id, bar_type):
 
 	
 func _on_bar_timer_timeout(bar_id):
-	print("TIMER OFF")
 	_set_ship_health(bar_id, 1)
 	
 	
@@ -100,10 +103,10 @@ func _process_ship_health():
 func remove_ship_bar(bar_id):
 	var bar_to_remove = additional_bars.get(bar_id)
 	bar_to_remove[5].stop()
+	_change_bar_size_remove(bar_to_remove[2], 0.3)
+	_change_bar_size_remove(bar_to_remove[3], 0.3)
+	_change_bar_size_remove(bar_to_remove[4], 0.3)
 	remove_child(bar_to_remove[5])
-	health_bar.remove_child(bar_to_remove[2])
-	health_bar.remove_child(bar_to_remove[3])
-	health_bar.remove_child(bar_to_remove[4])
 	additional_bars.erase(bar_id)
 
 func _get_bar_texture(bar_type):
@@ -128,7 +131,4 @@ func _on_health_middle_resized() -> void:
 	await get_tree().process_frame
 	if health_middle.size.x <= 0:
 		print("End")
-		#health_head.visible = false
-		#health_middle.visible = false
-		#health_end.visible = false
 		get_tree().paused = true
