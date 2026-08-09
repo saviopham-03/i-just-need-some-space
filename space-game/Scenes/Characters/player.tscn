@@ -179,11 +179,4 @@ position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_ep3er")
 animation = &"jump"
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=19590971]
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 2312
-limit_bottom = 648
-
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]

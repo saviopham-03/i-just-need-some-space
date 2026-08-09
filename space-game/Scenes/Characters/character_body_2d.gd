@@ -14,17 +14,30 @@ var is_in_space: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func get_obstacle() -> void:
+	var tilemap: TileMapLayer = get_tree().get_first_node_in_group("tilemap")
+	if not tilemap:
+		return
+	var cell = tilemap.local_to_map(tilemap.to_local(global_position))
+	var data: TileData = tilemap.get_cell_tile_data(cell)
+	
+	if data:
+		var obby: int = data.get_custom_data("obstacle")
+		if obby==2: #ladder
+			set_on_ladder(true)
+	else:
+		set_on_ladder(false)
+	return
 
 func _process(_delta: float) -> void:
+	get_obstacle()
+		
 	if is_on_ladder:
 		animated_sprite.play("idle")
 		return
-
 	if velocity.y > 0:
 		animated_sprite.play("falling")
-	elif velocity.y < 0:
-		animated_sprite.play("jump")
-	elif velocity.x != 0:
+	if velocity.x != 0:
 		if is_on_floor():
 			animated_sprite.play("walk")
 		animated_sprite.flip_h = velocity.x < 0

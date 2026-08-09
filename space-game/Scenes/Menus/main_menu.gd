@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_start_btn_pressed() -> void:
 	$MainMenu/click_start.play()
-	SceneTransitions.change_scene("res://Scenes/Levels/TestBox.tscn")
+	SceneTransitions.change_scene("res://Scenes/Levels/LevelOne/level_one_world.tscn")
 
 
 func _on_options_btn_mouse_entered() -> void:
