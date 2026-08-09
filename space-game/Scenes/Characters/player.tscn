@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bfky45iwmjp26" path="res://Assets/Characters/player_jump-Sheet.png" id="3_gy20a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep3er"]
-size = Vector2(21, 26)
+size = Vector2(12, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxpk4"]
 atlas = ExtResource("2_cqrjx")
@@ -171,11 +171,11 @@ animations = [{
 script = ExtResource("1_40svl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1736118108]
-position = Vector2(0.5, -3)
+position = Vector2(1, -5)
 shape = SubResource("RectangleShape2D_ep3er")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1295149593]
-position = Vector2(2, -6)
+position = Vector2(1, -6)
 sprite_frames = SubResource("SpriteFrames_ep3er")
 animation = &"jump"
 

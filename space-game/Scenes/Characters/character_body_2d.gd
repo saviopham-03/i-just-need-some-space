@@ -13,6 +13,7 @@ var is_on_ladder: bool = false
 var is_in_space: bool = false
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+	
 
 func get_obstacle() -> void:
 	var tilemap: TileMapLayer = get_tree().get_first_node_in_group("tilemap")
@@ -25,6 +26,10 @@ func get_obstacle() -> void:
 		var obby: int = data.get_custom_data("obstacle")
 		if obby==2: #ladder
 			set_on_ladder(true)
+		if obby==3: #exit space
+			set_space_movement(false)
+		if obby==4: #enter space
+			set_space_movement(true)
 	else:
 		set_on_ladder(false)
 	return
