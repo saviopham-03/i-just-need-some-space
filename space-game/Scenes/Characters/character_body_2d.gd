@@ -102,7 +102,6 @@ func handle_ladder_movement() -> void:
 
 func set_on_ladder(value: bool) -> void:
 	is_on_ladder = value
-	print("LADDER STATE: ", is_on_ladder)
 
 func handle_space_movement(delta: float) -> void:
 	var horizontal_dir := Input.get_axis("ui_left", "ui_right")
