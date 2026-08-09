@@ -7,7 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://df4iv3wjv36p0" path="res://Assets/Menus/start_idle.png" id="6_j4kqa"]
 [ext_resource type="Texture2D" uid="uid://l1qdem21lqum" path="res://Assets/Menus/start_steady-Sheet.png" id="7_anmaw"]
 [ext_resource type="FontFile" uid="uid://dy4a3fsgt7cfq" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="8_4fgt5"]
+[ext_resource type="AudioStream" uid="uid://by2hc3l2ay68b" path="res://Assets/Sounds/cursor.ogg" id="8_anmaw"]
 [ext_resource type="Texture2D" uid="uid://dusa3mujfhwwt" path="res://Assets/Menus/start_trans-Sheet.png" id="8_ftsii"]
+[ext_resource type="AudioStream" uid="uid://cegqqmkd3oyce" path="res://Assets/Sounds/blowing bubbles 1.wav" id="9_ftsii"]
+[ext_resource type="AudioStream" uid="uid://d0oa656tkp3w2" path="res://Assets/Sounds/select.ogg" id="10_ftsii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fgt5"]
 atlas = ExtResource("3_aur2u")
@@ -249,6 +252,15 @@ scale = Vector2(0.38125, 0.38125)
 sprite_frames = SubResource("SpriteFrames_lscqk")
 animation = &"idle"
 
+[node name="hover" type="AudioStreamPlayer" parent="MainMenu" unique_id=814671503]
+stream = ExtResource("8_anmaw")
+
+[node name="click_start" type="AudioStreamPlayer" parent="MainMenu" unique_id=1180676220]
+stream = ExtResource("9_ftsii")
+
+[node name="click" type="AudioStreamPlayer" parent="MainMenu" unique_id=1200524085]
+stream = ExtResource("10_ftsii")
+
 [node name="OptionsBtn" type="Button" parent="MainMenu" unique_id=387524303]
 layout_mode = 2
 size_flags_vertical = 3
@@ -269,4 +281,10 @@ theme_override_font_sizes/font_size = 41
 text = "Exit"
 flat = true
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="." to="MainMenu/StartBtn" method="_on_main_menu_mouse_entered"]
 [connection signal="pressed" from="MainMenu/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="mouse_entered" from="MainMenu/OptionsBtn" to="." method="_on_options_btn_mouse_entered"]
+[connection signal="pressed" from="MainMenu/OptionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="mouse_entered" from="MainMenu/ExitBtn" to="." method="_on_exit_btn_mouse_entered"]
+[connection signal="pressed" from="MainMenu/ExitBtn" to="." method="_on_exit_btn_pressed"]

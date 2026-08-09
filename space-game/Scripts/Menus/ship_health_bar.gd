@@ -3,29 +3,25 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ship_health = 100
-	ship_health_max = 100
-	await get_tree().process_frame
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
 
 # init
+@onready var ship_damage_timer = $ShipDamageTimer
+@onready var ship_damage_bar = $ShipDamageBar
 @onready var health_bar = $ShipHealthBarContainer
-@onready var health_head = $ShipHealthBarContainer/HealthHead
-@onready var health_middle = $ShipHealthBarContainer/HealthMiddle
-@onready var health_end = $ShipHealthBarContainer/HealthEnd
 const FIRE_HAZARD_HEAD = preload("res://Assets/Menus/fire_head.png")
 const FIRE_HAZARD_MIDDLE = preload("res://Assets/Menus/fire_middle.png")
 const FIRE_HAZARD_END = preload("res://Assets/Menus/fire_end.png")
 
-var max_health_on_texture
-var ship_health
-var ship_health_max
-var additional_bars = {}
+var max_health = health_bar.size.x
+var ship_health = 100 : set = _set_ship_health
 
-func _change_bar_size(texturerect, new_x, speed):
-	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_QUAD)
-	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(texturerect, "custom_minimum_size:x", new_x, speed)
+func _set_ship_health(healthid, value):
 
 func _change_bar_size_remove(texturerect, speed):
 	var tween = create_tween()

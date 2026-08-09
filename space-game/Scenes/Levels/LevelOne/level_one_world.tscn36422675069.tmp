@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ccrdax4i8xstt"]
+
+[ext_resource type="PackedScene" uid="uid://cogjbudeaym2a" path="res://Scenes/Levels/LevelOne/level1scene1.tscn" id="2_l5luc"]
+[ext_resource type="PackedScene" uid="uid://jae0s5vxtpsr" path="res://Scenes/Levels/LevelOne/level1scene2.tscn" id="3_iffav"]
+[ext_resource type="PackedScene" uid="uid://c8w6p686kppcq" path="res://Scenes/Characters/player.tscn" id="3_x0pgj"]
+
+[node name="Node2D" type="Node2D" unique_id=697349042]
+
+[node name="Player" parent="." unique_id=146263945 instance=ExtResource("3_x0pgj")]
+position = Vector2(1182, 550)
+
+[node name="scene1" parent="." unique_id=1496614791 instance=ExtResource("2_l5luc")]
+position = Vector2(1156, 0)
+
+[node name="scene2" parent="." unique_id=1029909663 instance=ExtResource("3_iffav")]
